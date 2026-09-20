@@ -237,7 +237,7 @@ export default function Contact() {
 
                 {/* LinkedIn */}
                 <a
-                  href="https://www.linkedin.com/in/jayeshchoudhary/"
+                  href="https://www.linkedin.com/in/jayesh-choudhary-8b7201360/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Visit LinkedIn profile"
@@ -251,7 +251,7 @@ export default function Contact() {
 
                 {/* LeetCode */}
                 <a
-                  href="https://leetcode.com/u/jayeshchoudhary/"
+                  href="https://leetcode.com/u/Jayeshchoudhary9503/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Visit LeetCode profile"
