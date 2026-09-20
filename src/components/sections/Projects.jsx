@@ -66,8 +66,8 @@ const PROJECTS_CONFIG = [
         ],
         tech: ["Node.js", "Express.js", "MongoDB", "JavaScript", "Tailwind CSS"],
         year: "2026",
-        link: "https://url-shortener-aykv.onrender.com/",
-        sourceCode: "https://github.com/choudharyjayesh668/url-shortener",
+        link: "https://url-shortner-seven-blush-49.vercel.app/",
+        sourceCode: "https://github.com/choudharyjayesh668/url-shortner",
     },
     {
         id: "3",
