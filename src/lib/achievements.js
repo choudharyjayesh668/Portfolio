@@ -1,0 +1,60 @@
+/**
+ * Configuration for the Achievements section for Jayesh Choudhary.
+ */
+export const ACHIEVEMENTS_CONFIG = [
+  {
+    id: "production-mern-apps",
+    title: "Production-Ready MERN Applications",
+    issuer: "Full Stack Development",
+    date: "2025 – 2026",
+    description: "Built multiple full-stack production-ready web applications with scalable architecture.",
+    longDescription: "Architected and delivered end-to-end full-stack projects including Telegram Drive, BillNest, and URL Shortener. Focused on clean MVC code patterns, responsive UI, high database query performance, and reliable state management.",
+    tags: ["MERN Stack", "Production", "Architecture"],
+  },
+  {
+    id: "fullstack-deployments",
+    title: "Live Cloud Deployments",
+    issuer: "DevOps & Cloud",
+    date: "2025 – 2026",
+    description: "Successfully configured and deployed full-stack web applications on cloud platforms.",
+    longDescription: "Deployed frontend and backend services across Render, Vercel, and cloud databases (MongoDB Atlas), implementing environment configurations, SSL security, custom domains, and automated CI/CD builds.",
+    tags: ["Vercel", "Render", "MongoDB Atlas", "Deployment"],
+  },
+  {
+    id: "auth-security-mastery",
+    title: "Secure Authentication & API Architecture",
+    issuer: "Backend Engineering",
+    date: "2025 – 2026",
+    description: "Designed secure JWT authentication, cookie sessions, password hashing, and role protection.",
+    longDescription: "Engineered bulletproof REST APIs with Express.js utilizing JSON Web Tokens (JWT), httpOnly cookies, bcrypt hashing, CORS policies, rate limiting, and robust protected route middleware.",
+    tags: ["JWT", "Security", "REST APIs", "bcrypt"],
+  },
+  {
+    id: "consistent-github-contributions",
+    title: "Continuous GitHub Contributions",
+    issuer: "Open Source & Code Activity",
+    date: "2025 – 2026",
+    description: "Consistently building projects, learning new technologies, and contributing code every week.",
+    longDescription: "Maintained active development streaks on GitHub, version controlling complex multi-repository projects, writing clean documentation, and collaborating within the developer ecosystem.",
+    tags: ["GitHub", "Git", "Open Source", "Consistency"],
+    link: "https://github.com/choudharyjayesh668",
+  },
+  {
+    id: "ai-integration-mern",
+    title: "AI Integration in Full-Stack Apps",
+    issuer: "Emerging Tech",
+    date: "2026",
+    description: "Expanding expertise into AI-powered tools and intelligent workflows within MERN stack.",
+    longDescription: "Actively exploring and integrating LLM APIs and modern AI capabilities into full-stack web apps, creating automated workflows and intelligent data management features.",
+    tags: ["AI Integration", "MERN + AI", "Innovation"],
+  },
+  {
+    id: "problem-solving-cs",
+    title: "Computer Science & Problem Solving",
+    issuer: "PES MCA • BCA Bangalore University",
+    date: "2023 – 2028",
+    description: "Strong academic foundation from BCA (Bangalore Univ.) through MCA (PES).",
+    longDescription: "Solid theoretical and practical foundations encompassing BCA from Om Sai Degree College (Bangalore University, 2023–2026) and MCA at PES (2026–2028), with in-depth coursework in Data Structures, Database Systems, Operating Systems, Computer Networks, and Object-Oriented Programming.",
+    tags: ["Data Structures", "DBMS", "BCA", "MCA PES"],
+  },
+];
