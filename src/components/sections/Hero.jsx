@@ -155,10 +155,8 @@ export default function Hero() {
 
           <a
             ref={magneticResume.ref}
-            href="/Jayesh-Choudhary-Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            download="Jayesh-Choudhary-Resume.pdf"
+            href="/Jayesh%20Resume.pdf"
+            download="Jayesh Resume.pdf"
             aria-label="Download Resume"
             className="group relative inline-flex items-center gap-2 rounded-lg bg-[#111111]/80 border border-[#232323] px-5 py-3.5 font-['var(--font-dm-mono)'] text-xs uppercase tracking-wider text-[#9B9B9B] transition-all duration-300 hover:text-[#F5F5F5] hover:border-[#CBA35C]/60 hover:-translate-y-0.5"
           >

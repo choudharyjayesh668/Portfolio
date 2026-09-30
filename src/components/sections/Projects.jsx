@@ -18,35 +18,25 @@ const PROJECTS_CONFIG = [
     {
         id: "1",
         number: "01",
-        title: "Telegram Drive",
+        title: "J-Drive",
         description:
-            "A secure cloud storage platform powered by Telegram where users can upload, organize, rename, move, delete, and manage files inside folders with secure authentication.",
+            "A cloud file-management platform that lets users securely upload, organize, preview, download, and manage their files through a clean, modern interface.",
         longDescription:
-            "Telegram Drive transforms Telegram's cloud architecture into a full-fledged cloud storage management platform. Users can effortlessly upload large files, organize them hierarchically in folders, search items in real-time, and manage their cloud assets securely.",
-        features: [
-            "JWT Authentication",
-            "Folder Management",
-            "File Upload",
-            "File Rename",
-            "Delete Files & Folders",
-            "Real-time Search",
-            "Responsive UI",
-            "Cloud Storage Integration",
-            "Protected Dashboard",
-        ],
+            "A cloud file-management platform that lets users securely upload, organize, preview, download, and manage their files through a clean, modern interface.",
+        features: [],
         tech: [
             "React.js",
             "Node.js",
             "Express.js",
             "MongoDB",
             "JWT",
-            "Cloudinary",
             "Telegram API",
+            "Cloudinary",
             "Tailwind CSS",
         ],
         year: "2026",
-        link: "https://telegram-drive-sepia.vercel.app/",
-        sourceCode: "https://github.com/choudharyjayesh668/Telegram-Drive",
+        link: "https://j-drive.vercel.app",
+        sourceCode: "https://github.com/choudharyjayesh668/J-Drive",
     },
     {
         id: "2",
@@ -94,31 +84,6 @@ const PROJECTS_CONFIG = [
     {
         id: "4",
         number: "04",
-        title: "BillNest",
-        description:
-            "A complete billing, quotation, and inventory management system built for businesses (including Lakshmi Industries) to efficiently manage customers, products, invoices, and sales.",
-        longDescription:
-            "BillNest simplifies billing and inventory operations for modern businesses with a clean dashboard, secure JWT authentication, and real-time sales & inventory tracking. Implemented for Lakshmi Industries to streamline quotation generation, invoice creation, and business accounting.",
-        features: [
-            "Secure JWT Authentication",
-            "Customer Management",
-            "Product Management",
-            "Invoice & Quotation Generation",
-            "Billing Dashboard",
-            "Sales History & Money Tracking",
-            "Inventory Management",
-            "Search & Filters",
-            "Responsive Design",
-            "Protected Admin Dashboard",
-        ],
-        tech: ["Node.js", "Express.js", "MongoDB", "JWT", "REST API", "EJS"],
-        year: "2026",
-        link: "https://billnest-sh5t.onrender.com/",
-        sourceCode: "https://github.com/choudharyjayesh668/BillNest",
-    },
-    {
-        id: "5",
-        number: "05",
         title: "Personal Portfolio",
         description:
             "A modern developer portfolio showcasing projects, technical skills, experience, GitHub activity, achievements, and contact information with elegant UI and smooth animations.",
@@ -312,7 +277,7 @@ export default function Projects() {
                             <DrawerTrigger asChild>
                                 <div
                                     className={`cursor-pointer h-full ${
-                                        index === 4
+                                        projects.length % 2 !== 0 && index === projects.length - 1
                                             ? "md:col-span-2 md:w-[calc(50%-1rem)] md:mx-auto"
                                             : ""
                                     }`}
@@ -418,24 +383,26 @@ export default function Projects() {
                                                 </p>
                                             </div>
 
-                                            <div className="mb-6">
-                                                <h4 className="font-['var(--font-cormorant)'] text-xl font-bold text-[#F5F5F5] mb-3">
-                                                    Key Features
-                                                </h4>
-                                                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                                                    {selectedProject.features.map(
-                                                        (feature) => (
-                                                            <li
-                                                                key={feature}
-                                                                className="flex items-center gap-2 text-xs font-['var(--font-inter)'] text-[#9B9B9B]"
-                                                            >
-                                                                <CheckCircle className="w-4 h-4 text-[#CBA35C] shrink-0" />
-                                                                <span>{feature}</span>
-                                                            </li>
-                                                        ),
-                                                    )}
-                                                </ul>
-                                            </div>
+                                            {selectedProject.features && selectedProject.features.length > 0 && (
+                                                <div className="mb-6">
+                                                    <h4 className="font-['var(--font-cormorant)'] text-xl font-bold text-[#F5F5F5] mb-3">
+                                                        Key Features
+                                                    </h4>
+                                                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                                        {selectedProject.features.map(
+                                                            (feature) => (
+                                                                <li
+                                                                    key={feature}
+                                                                    className="flex items-center gap-2 text-xs font-['var(--font-inter)'] text-[#9B9B9B]"
+                                                                >
+                                                                    <CheckCircle className="w-4 h-4 text-[#CBA35C] shrink-0" />
+                                                                    <span>{feature}</span>
+                                                                </li>
+                                                            ),
+                                                        )}
+                                                    </ul>
+                                                </div>
+                                            )}
 
                                             <div className="mb-8">
                                                 <h4 className="font-['var(--font-cormorant)'] text-xl font-bold text-[#F5F5F5] mb-3">
