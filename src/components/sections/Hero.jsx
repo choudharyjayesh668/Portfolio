@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from '@/lib/gsap'
-import { ArrowRight, Download, Send } from 'lucide-react'
+import { ArrowRight, Download, Send, Check, Loader2 } from 'lucide-react'
 import { TextScramble } from '@/components/shared/TextScramble'
 import { useMagnetic } from '@/hooks/useMagnetic'
 
@@ -9,6 +9,48 @@ export default function Hero() {
   const magneticProjects = useMagnetic()
   const magneticContact = useMagnetic()
   const magneticResume = useMagnetic()
+  const [downloadState, setDownloadState] = useState('idle') // 'idle' | 'downloading' | 'downloaded'
+
+  const handleDownloadResume = async (e) => {
+    e.preventDefault()
+    if (downloadState === 'downloading') return
+
+    setDownloadState('downloading')
+    const resumePath = `${import.meta.env.BASE_URL}Jayesh%20Resume.pdf`
+
+    try {
+      const response = await fetch(resumePath)
+      if (!response.ok) {
+        throw new Error(`Failed to fetch resume: ${response.status}`)
+      }
+      const blob = await response.blob()
+      const blobUrl = window.URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = blobUrl
+      link.download = 'Jayesh Resume.pdf'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      window.URL.revokeObjectURL(blobUrl)
+
+      setDownloadState('downloaded')
+      setTimeout(() => {
+        setDownloadState('idle')
+      }, 2500)
+    } catch (error) {
+      console.error('Download error, falling back to direct download:', error)
+      const fallbackLink = document.createElement('a')
+      fallbackLink.href = resumePath
+      fallbackLink.download = 'Jayesh Resume.pdf'
+      fallbackLink.target = '_blank'
+      fallbackLink.rel = 'noopener noreferrer'
+      document.body.appendChild(fallbackLink)
+      fallbackLink.click()
+      document.body.removeChild(fallbackLink)
+
+      setDownloadState('idle')
+    }
+  }
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -155,14 +197,29 @@ export default function Hero() {
 
           <a
             ref={magneticResume.ref}
-            href="/Jayesh%20Resume.pdf"
+            href={`${import.meta.env.BASE_URL}Jayesh%20Resume.pdf`}
             download="Jayesh Resume.pdf"
+            onClick={handleDownloadResume}
             aria-label="Download Resume"
-            className="group relative inline-flex items-center gap-2 rounded-lg bg-[#111111]/80 border border-[#232323] px-5 py-3.5 font-['var(--font-dm-mono)'] text-xs uppercase tracking-wider text-[#9B9B9B] transition-all duration-300 hover:text-[#F5F5F5] hover:border-[#CBA35C]/60 hover:-translate-y-0.5"
+            className="group relative inline-flex items-center gap-2 rounded-lg bg-[#111111]/80 border border-[#232323] px-5 py-3.5 font-['var(--font-dm-mono)'] text-xs uppercase tracking-wider text-[#9B9B9B] transition-all duration-300 hover:text-[#F5F5F5] hover:border-[#CBA35C]/60 hover:-translate-y-0.5 cursor-pointer"
           >
             <span ref={magneticResume.innerRef} className="relative z-10 flex items-center gap-2">
-              <Download className="w-3.5 h-3.5 text-[#CBA35C]" />
-              Download Resume
+              {downloadState === 'downloading' ? (
+                <>
+                  <Loader2 className="w-3.5 h-3.5 text-[#CBA35C] animate-spin" />
+                  <span>Downloading...</span>
+                </>
+              ) : downloadState === 'downloaded' ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  <span className="text-emerald-400">Downloaded!</span>
+                </>
+              ) : (
+                <>
+                  <Download className="w-3.5 h-3.5 text-[#CBA35C] transition-transform duration-300 group-hover:translate-y-0.5" />
+                  <span>Download Resume</span>
+                </>
+              )}
             </span>
           </a>
         </div>
